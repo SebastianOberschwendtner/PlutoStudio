@@ -1,0 +1,58 @@
+@startuml plutopy_class_diagram
+hide empty members
+title Plutopy Class Diagram
+
+class PlutoApp  {
+    + layout
+    + viewer
+    + device
+    + buffer
+}
+class DefaultLayout
+class Layout {
+    + content
+    + view_frame
+    - _start_callback
+    - _stop_callback
+}
+class Viewer {
+    + figure
+    + axes
+    + update()
+}
+class DefaultViewer
+class Device {
+    + connect()
+    + disconnect()
+    + acquire()
+} 
+class Pluto
+class Buffer {
+    + size
+    + capacity
+    - _data
+    + clear()
+    + get()
+}
+class FixedBuffer {
+    + put()
+}
+class CircularBuffer {
+    + put()
+}
+class RollingBuffer {
+    + put()
+}
+
+PlutoApp *-- DefaultLayout
+DefaultLayout --|> Layout
+PlutoApp *-- DefaultViewer
+DefaultViewer --|> Viewer
+Pluto --|> Device
+PlutoApp *-- Pluto
+FixedBuffer --|> Buffer
+CircularBuffer --|> Buffer
+RollingBuffer --|> Buffer
+PlutoApp *-- CircularBuffer
+
+@enduml

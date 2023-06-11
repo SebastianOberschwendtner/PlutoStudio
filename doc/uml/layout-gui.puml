@@ -1,0 +1,18 @@
+@startsalt layout-gui
+{#
+    [Start] |
+    "Center Frequency"
+    {
+        **Settings**
+        ^Device^
+        "Bandwidth"
+    } |
+    {+
+        {/ <b>Spectrum | Demodulated}
+        .
+        .
+        .
+        .
+    }
+}
+@endsalt
